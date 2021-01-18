@@ -1,0 +1,60 @@
+% a standard package for 'input encodings'. i'm not really sure what it
+% does, but it seems to be in every latex document i see so probably
+% best to just keep it there.
+\usepackage[utf8]{inputenc}
+
+% packages for creating nice equations and other mathematical stuff.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% package to enable you to include images.
+\usepackage{graphicx}
+
+% package to create nice-looking tables
+\usepackage{booktabs}
+
+% package for making hyperlinks. note that this also creates links
+% within your document, so that you can click on things like section
+% names in the table of contents and be taken to that section in the
+% PDF.
+\usepackage{hyperref}
+
+% turn on the options below to change the text colour of different
+% types of links. you can read about how to set the different
+% options at https://www.overleaf.com/learn/latex/hyperlinks
+
+%\hypersetup{
+%    colorlinks=true,
+%    linkcolor=red,
+%    urlcolor=cyan
+%}
+
+% package for using different fonts. the default font for latex is
+% 'computer modern'. i don't think i've ever used a different font
+% in any latex document i've produced.
+\usepackage[T1]{fontenc}
+
+% package to enable you to add extra info on figures. 
+\usepackage[capposition=top]{floatrow}
+
+% package for citations and bibliographies. currently the citation
+% style is "authoryear" and the reference style is "apa", which
+% stands for "american psychological association" and means that
+% the references will be formatted in the way preferred by the APA
+% (the APA style is pretty standard, along with Chicago and
+% Harvard). if you want a different style, such as citations
+% appearing as numbers in square brackets, check the overleaf
+% guides for the appropriate citestyle.
+\usepackage[
+citestyle=authoryear,
+style=apa
+]{biblatex}
+
+% specifies the file that contains our bibliographic information.
+\addbibresource{refs.bib}
+
+% this is where you put your title, author names, and date.
+\title{Scientific Report Template}
+\author{Jac Thomas\\ Department of Geography and Planning,\\ University of Liverpool}
+\date{\today}

@@ -1,0 +1,159 @@
+%---------------------------------------------
+%        Scientific Report LaTeX Template
+%             Bibtex file
+%            by Jac Thomas
+%              16/01/2021
+%         Jac.Thomas2@liverpool.ac.uk
+%---------------------------------------------
+%
+% In a .bib file, there are many different types of entries:
+% journal articles, books, websites, conference proceedings etc.
+% The first thing to do when putting in a new item is to decide
+% which type fits best. For each type, you need to specify a
+% "key", which will allow you to cite it in your .tex file. For
+% example, the first item below (an article) has the key "Chan2015".
+%
+% Below the key, each entry contains a certain number of "fields",
+% such as "author", "year", "title" etc. Generally, the syntax is:
+%
+%   year = {2015}
+%
+% If you're going to put in more fields, put a comma after the 
+% closing curly brace, and start on the next line. It doesn't matter
+% what order your the fields into your entry, and bibtex ignores all
+% white space. Note that for some entry types, certain fields are
+% mandatory (e.g. for the "article" type, the "title" field is
+% mandatory). All entries require a key.
+%
+% Like latex, bibtex is very picky about correct spelling and syntax.
+% Often, a problem will be caused by incorrectly formatting your
+% bibtex entries. If you keep getting stuck, it's worthwhile to
+% copy and paste your .bib file into a "linter":
+%
+%   https://biblatex-linter.herokuapp.com/
+%
+% The linter will check to make sure everything's formatted correctly
+% in your .bib file, and let you know if/where you're making any
+% mistakes. If you want more quick tips on your .bib file, have a
+% look at this cheat sheet:
+%
+%   http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf
+%
+% Remember that bibtex doesn't care about whitespace, so you can
+% have as many tabs and newlines as you want. I set out my .bib
+% files as below, to keep everything neat and easy to read. The
+% entry types below are as follows:
+% 
+%   article
+%   article
+%   book
+%   book
+%   chapter in book
+%   a website
+%   a reference book
+%   an article in a reference book
+%   a miscellaneous entry
+%
+
+% an example article entry
+@article{Chan2015,
+    % for authors, just write their names as normal, separated by "and".
+    % do this even if there are more than 2 authors, e.g. Mark Smith and
+    % David Jones and Sam Davies
+    author={Sheng-Ju Chan and Liang-Wen Lin},
+    % use two pairs of curly braces (i.e. {{Title}}) for the title. if you
+    % don't, the bibliography will make the title all lower-case, apart from
+    % the first letter. if you do use two pairs of curly braces, then all
+    % capitalisation will be preserved.
+    title={{Massification of Higher Education in Taiwan: Shifting Pressure from 
+    Admission to Employment}},
+    journal={Higher Education Policy},
+    year={2015},
+    volume={28},
+    number={1},
+    pages={17-33}
+    }
+
+% another article entry
+@article{Cooke2009,
+    author = {Lynn Prince Cooke},
+    journal = {Journal of Social Policy},
+    number = {1},
+    pages = {123},
+    title = {{Gender Equity and Fertility in Italy and Spain}},
+    volume = {38},
+    year = {2009}
+    }
+    
+% a book entry
+@book{wade2004,
+    % alternatively, you can put in the author's name like [last name], [first name]
+    author = {Wade, Robert},
+    publisher = {Princeton University Press},
+    title = {Governing the market : economic theory and the role of government in East Asian industrialization.},
+    Year = {2004}
+}
+
+% another book
+@book{metzler2017,
+    % as you can see, writing "Author" instead of "author" is fine.
+    Author = {Metzler, John J.},
+    address = {Basingstoke},
+    Publisher = {Palgrave Macmillan},
+    Title = {Taiwan's transformation : 1895 to the present.},
+    Year = {2017}
+}
+
+% a chapter in a book
+@inbook{Clark2018,
+    author={Clark, Cal and Clark, Janet},
+    editor={Chen, Ya-chen},
+    title={{Factors Promoting Women's Participation in Taiwan's Politics}},
+    bookTitle={(En)Gendering Taiwan: The Rise of Taiwanese Feminism},
+    year={2018},
+    publisher={Springer International Publishing},
+    address={Cham},
+    pages={95--113}
+}
+
+% a website
+@online{stanphil,
+    title={{Stanford Encyclopedia of Philosophy}},
+    author={Edward N. Zalta},
+    year={2021},
+    url={https://plato.stanford.edu/},
+    institution={Stanford University},
+    location={Stanford, CA}
+}
+
+% a reference book (e.g. encyclopedia)
+@reference{methmat2004,
+    title={{The Methods and Materials of Demography}},
+    edition={2},
+    year={2004},
+    editor={Jacob S Siegel and David A Swanson},
+    publisher={Elsevier},
+    location={Amsterdam, Netherlands}
+}
+
+% an article in a reference book
+@inreference{popprojections,
+    title={{Population Projections}},
+    author={M V George and Stanley K Smith and David A Swanson and Jeff Tayman},
+    booktitle={{The Methods and Materials of Demography}},
+    edition={2},
+    year={2004},
+    editor={Jacob S Siegel and David A Swanson},
+    publisher={Elsevier},
+    location={Amsterdam, Netherlands}
+}
+
+% a miscellaneous entry (use if you can't find a more appropriate
+% entry type)
+@misc{hfd2020,
+    title={{Human Fertility Database}},
+    author={HFD},
+    year={2020},
+    url={https://www.humanfertility.org/cgi-bin/main.php},
+    institution={Max Planck Institute for Demographic Research}
+}

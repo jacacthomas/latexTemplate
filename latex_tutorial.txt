@@ -1,0 +1,155 @@
+---------------------------------------------
+        Scientific Report LaTeX Template
+          Five minute LaTeX intro
+            by Jac Thomas
+              16/01/2021
+         Jac.Thomas2@liverpool.ac.uk
+---------------------------------------------
+
+---------------------------------------------
+INTRODUCTION
+---------------------------------------------
+
+Latex is a document preparation system. It is used to make professional-looking PDF documents.
+
+This tutorial assumes you are using Overleaf (overleaf.com). I think it's the simplest
+and most reliable way to get Latex working, if you're new to it.
+
+Latex works by taking a plain text file with the file extension ".tex", and then compiling
+it into a PDF document. The way you work with latex is by editing your main.tex file,
+clicking the "Recompile" button, checking whether the resulting PDF looks OK, and then
+editing the .tex file some more.
+
+Generally speaking, latex is very picky about correct spelling and syntax. If you don't get
+it exactly right, then latex will throw up lots of angry warning messages and error
+messages, and your PDF may look weird or not get made at all. Overleaf is useful because
+it tends to guess what you're trying to write as you're typing - it'll give you a list of
+options, and you can usually just hit enter to put the word in correctly.
+
+The only thing you need to make a PDF is a main.tex file. Note that it doesn't have to
+be called "main.tex", you can call it "report.tex" or whatever.
+
+Your main.tex file is constructed as follows:
+
+    \documentclass[10pt]{article}
+        [preamble]
+    \begin{document}
+        Here is some writing.
+    \end{document}
+
+It is divided into 2 parts: the preamble (everything that comes before
+"\begin{document}") and the body (everything that comes between
+"\begin{document}" and "\end{document}"). The preamble is where you include all
+the info about the document, load any packages (things that enable you to do 
+specialised things like make nice equations or include graphics), and set various
+parameters, like what the captions on figures should look like. The body is where
+you put all the content of the document, i.e. all the writing. The body is where
+you'll be working 95% of the time.
+
+Any .tex file is made up of a bunch of things that look like this:
+
+    \begin{itemize}
+        \item This is an item.
+    \end{itemize}
+    \maketitle
+    \documentclass[12pt]{article}
+    \makebibliography
+    \begin{equation}
+        y = \frac{3}{4}
+    \end{equation}
+    \newpage
+    \noindent
+    \textbf{This text is in bold}
+
+Anything with a backslash (\) in front of it is a command. Anything that appears
+in curly braces ({}) after the command is an argument of that command. Generally
+speaking, if a command has curly braces associated after it, you need to put something
+in those curly braces - in other words, these arguments are required. Some commands
+require no arguments (such as \maketitle, \newpage, \noindent), some commands require
+one argument (e.g. \begin{}, \end{}, \textbf{}), and some commands require two
+arguments (e.g. \frac{1}{2}) or more. Commands may also take optional arguments,
+which are included in square brackets ([]) between the command name and the curly
+braces. For example, the "[12pt]" part of "\documentclass[12pt]{article}" tells
+latex that the default font size in the article should be 12 points. Optional
+arguments are not mandatory - if you just write "\documentclass{article}" that will
+work fine, Latex will just use the default font size.
+
+NB: strictly speaking, not absolutely everything with the backslash in front of it
+is a command. Backslashes are also used as the "escape" character, meaning that they
+are used to say, "type out exactly what I write next." You need this in order to
+write out curly braces in your PDF, or any other latex special character, such as
+$, %, ^, _, or #. If you want to write out the backslash character in your PDF, you
+must do so with the special command \textbackslash.
+
+One very important pair of commands is "\begin{}" and "\end{}". They
+create an environment, such as the "equation" environment. Everything that
+appears between these commands will be the equation. If you begin an environment,
+you have to end it. Otherwise you'll get a bunch of error messages. Everything in
+the body of the document is contained within the "document" environment.
+
+---------------------------------------------
+INSERTING GRAPHICS AND REFERENCES
+---------------------------------------------
+
+You'll usually want to include stuff like graphics and bibliographies in your
+document. For graphics, you need to include the graphics files (usually .png files)
+in the same folder as main.tex, or in a subfolder. In main.tex you then tell latex
+where you want to include the graphic, how big you want it, whether you want it
+centered etc. For example:
+
+    \includegraphics[scale=0.7]{graph1.png}
+
+This command tells latex to include graph1.png at that place, or at the next place
+that latex thinks is reasonable if it doesn't think you should include it right
+there. You need to have graph1.png in the same folder as main.tex, otherwise you'll
+get an error message. For a bibliography, you could just format your citations and
+references manually, i.e. by writing them all out in main.tex. However, it's a lot
+simpler to use the package "biblatex" (\usepackage{biblatex}), and specifying that
+your bibliography is contained in the file "refs.bib" with the command 
+"\addbibresource{refs.bib}". Your .bib file has to contain entries (e.g. articles,
+books, websites) in a very specific format - the format for the main types of
+entries are discussed in the refs.bib file in this folder. Let's look at a typical
+.bib file entry:
+
+    @article{Chan2015,
+    author={Sheng-Ju Chan and Liang-Wen Lin},
+    title={Massification of Higher Education in Taiwan: Shifting Pressure from 
+    Admission to Employment},
+    journal={Higher Education Policy},
+    year={2015},
+    volume={28},
+    number={1},
+    pages={17-33}
+    }
+
+The most important line is the first one, "@article{Chan2015,". This tells latex
+that this entry is a journal article, and that its reference is "Chan2015". So,
+if you want to reference this article in your report, you can write;
+
+    Since the mid-90s, the Taiwanese government has rapidly expanded the proportion 
+    of school-leavers going on to university \parentcite{Chan2015}.
+
+When your PDF is compiled, the sentence will look like this:
+
+    Since the mid-90s, the Taiwanese government has rapidly expanded the proportion 
+    of school-leavers going on to university (Chan, 2015).
+
+At the end of the document, you can then insert your bibliography list. Latex will
+automatically remember all the things you cited in the document, get info on each
+of those things from the .bib file, and create the bibliography. Note that if you
+don't cite something in your .bib file, it won't be included in the bibliography.
+
+---------------------------------------------
+QUOTATIONS AND NEW LINES
+---------------------------------------------
+
+One useful tip is how latex processes quotation marks. You have to be careful, 
+because using the standard double quotation marks on your keyboard will come out 
+a bit strange: ". If you want to write opening double quotation marks, type out 
+two back ticks (the button should be on the top left of your keyboard): ``. If you 
+want to write closing double quotation marks, type out two apostrophes: ''. You 
+can write single opening quotation marks and single closing quotation marks similarly.
+
+If you want to start a newline anywhere outside of the main document environment, 
+use the double backslash: \\. If you want a gap between the current line and the 
+following line, use this: \\~\\.
